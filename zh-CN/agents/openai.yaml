@@ -1,0 +1,4 @@
+interface:
+  display_name: "文化活动宣传主视觉"
+  short_description: "ImageGen 高保真确认后组装为可编辑 SVG"
+  default_prompt: "Use $cultural-event-key-visual to generate and revise a high-fidelity cultural-event visual, then assemble the approved PNG into editable SVG text and original-asset layers."

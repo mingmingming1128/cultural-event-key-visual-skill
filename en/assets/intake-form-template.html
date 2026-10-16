@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cultural Event Key Visual | Design Brief</title>
+<style>
+:root{font-family:Inter,"Segoe UI",Arial,sans-serif;color:#20312c;background:#f5f3ed}
+*{box-sizing:border-box}body{margin:0}main{max-width:900px;margin:auto;padding:36px 22px 96px}
+header{padding:18px 0 26px}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.16em;color:#a45131}h1{font-size:clamp(30px,5vw,48px);line-height:1.2;margin:10px 0}h2{font-size:22px;margin:0 0 8px}p{line-height:1.65}.lead{max-width:680px;color:#52615c;margin:0}.progress{display:flex;align-items:center;gap:14px;margin-top:25px;font-size:13px;color:#52615c}.bar{height:8px;flex:1;background:#deddd3;border-radius:20px;overflow:hidden}.bar span{display:block;width:0;height:100%;background:#a45131;transition:width .2s}
+.card{background:#fff;border:1px solid #dddcd2;border-radius:20px;padding:30px;margin:18px 0;box-shadow:0 10px 30px #20312c09}.step{font-size:12px;font-weight:800;letter-spacing:.12em;color:#a45131}.intro{margin:0 0 24px;color:#65716d;font-size:14px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.full{grid-column:1/-1}.field{min-width:0}
+label,.field-title{display:block;font-size:14px;font-weight:700;margin:0 0 7px}.optional{font-weight:400;color:#73807b}.hint,.note{font-size:12px;color:#64716d;margin:6px 0 0;line-height:1.55}input,select,textarea{width:100%;border:1px solid #bfc7c1;border-radius:10px;padding:12px 13px;background:#fff;color:#20312c;font:inherit;line-height:1.4}input:focus,select:focus,textarea:focus{outline:3px solid #cddfd1;border-color:#387553}textarea{min-height:94px;resize:vertical}input::placeholder,textarea::placeholder{color:#84908a}.preference-preset{background:#f7faf5;border-color:#cbd6cc}.preference-preset.standalone{margin-top:10px}.checks{display:flex;flex-wrap:wrap;gap:10px 18px}.checks label{font-weight:500;display:flex;align-items:center;gap:7px;margin:0}.checks input{width:auto;accent-color:#387553}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}.chip{background:#eef2eb;color:#31543e;border:1px solid #d3dfd1;padding:7px 12px;font-size:12px}.chip:hover{background:#dbe9d7}details{border-top:1px solid #e7e9e2;margin-top:24px;padding-top:18px}summary{cursor:pointer;font-weight:700;color:#31543e}details .grid{margin-top:20px}.upload-zone{display:block;border:2px dashed #9db1a3;border-radius:16px;padding:28px;text-align:center;background:#f7faf5;cursor:pointer;transition:.2s}.upload-zone:hover,.upload-zone.dragging{border-color:#387553;background:#edf6ec}.upload-zone strong{display:block;font-size:16px;color:#24543d}.upload-zone input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}.asset-summary{display:flex;justify-content:space-between;gap:16px;align-items:center;margin:18px 0 4px}.asset{display:grid;grid-template-columns:110px repeat(2,minmax(130px,1fr));gap:14px;align-items:start;padding:18px 0;border-top:1px solid #e6e8e1}.asset:first-child{border-top:0}.asset-preview{width:110px;height:110px;border-radius:12px;object-fit:cover;background:#eef0ea;border:1px solid #d7dbd3}.asset .name{word-break:break-all;font-size:13px}.asset .meta{grid-column:2/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.asset label{font-size:12px}.asset select,.asset input,.asset textarea{padding:9px}.asset textarea{min-height:70px}.asset .remove{justify-self:start}.asset-empty{padding:18px 0;color:#64716d;font-size:13px}
+.actions{position:sticky;bottom:0;display:flex;flex-wrap:wrap;gap:9px;background:#f5f3edf2;padding:14px 0;border-top:1px solid #deddd3;backdrop-filter:blur(8px)}button{border:0;border-radius:999px;padding:11px 17px;font-weight:700;cursor:pointer;background:#24543d;color:#fff}button.secondary{background:#e2e8df;color:#24543d}.actions .clear-all{flex:0 0 auto;margin-left:auto;background:#f8e2dc;color:#a34537}.remove{background:#a34537;padding:9px 12px}.status{min-height:24px;padding-top:8px;color:#24543d;font-weight:700;font-size:13px}.review{white-space:pre-line;background:#edf4eb;border-left:4px solid #387553;padding:17px;border-radius:9px;margin-top:10px;line-height:1.7}
+@media(max-width:700px){main{padding:24px 16px 100px}.card{padding:23px 18px}.grid,.asset,.asset .meta{grid-template-columns:1fr}.full,.asset .name,.asset .meta{grid-column:auto}.asset-preview{width:100%;height:180px}.actions button{flex:1 1 45%}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="eyebrow">DESIGN BRIEF / CULTURAL EVENT</div>
+<h1>Cultural Event Key Visual · Design Brief</h1>
+<p class="lead">Every field is optional. More detail helps align the generated direction with your expectations, while blank fields never block the next step. Necessary design decisions will be inferred from the text, images, and context you provide.</p>
+<div class="progress" aria-live="polite"><span id="progressText">Reference information provided: 0/5</span><div class="bar" aria-hidden="true"><span id="progressBar"></span></div></div>
+</header>
+
+<form id="briefForm">
+<section class="card">
+<div class="step">01 / EVENT</div>
+<h2>Event Details</h2>
+<p class="intro">Enter the event type, official name, and theme. Add date and time, venue or online platform, and organizer as separate text blocks under Cultural Text Materials.</p>
+<div class="grid">
+<div class="field"><label for="activity_type">Event Type</label><select id="activity_type" name="activity_type"><option value="">To be determined</option><option>Exhibition</option><option>Performance</option><option>Festival</option><option>Lecture or forum</option><option>Other</option></select></div>
+<div class="field"><label for="event_name">Official Event Name</label><input id="event_name" name="event_name" placeholder="Use the public-facing name; mark it clearly if provisional"></div>
+<div class="field full"><label for="theme">Event Theme <span class="optional">Optional</span></label><input id="theme" name="theme" placeholder="Theme description or confirmed theme line"></div>
+</div>
+</section>
+
+<section class="card">
+<div class="step">02 / COMMUNICATION</div>
+<h2>Audience and Communication Goal</h2>
+<p class="intro">Describe the primary audience and what the visual should communicate.</p>
+<div class="grid">
+<div class="field"><label for="audience">Target Audience</label><textarea id="audience" name="audience" placeholder="Audience characteristics, interests, or professional background"></textarea></div>
+<div class="field"><label for="communication_goal">Core Communication Goal</label><textarea id="communication_goal" name="communication_goal" placeholder="What should the audience understand or remember?"></textarea></div>
+<div class="field full"><label for="participation_info">Participation Information <span class="optional">Optional</span></label><textarea id="participation_info" name="participation_info" placeholder="Scan to reserve; reservation link: https://…&#10;Free walk-in admission; no reservation required"></textarea></div>
+</div>
+</section>
+
+<section class="card">
+<div class="step">03 / VISUAL</div>
+<h2>Visual Preferences</h2>
+<p class="intro">Write freely or choose from the quick-add menus below each field. Selected text is appended to the corresponding text box.</p>
+<div class="grid">
+<div class="field full"><label for="style_keywords">Desired Visual Style <span class="optional">Optional</span></label><textarea id="style_keywords" name="style_keywords" placeholder="Mood, texture, or reference direction"></textarea><select id="stylePreset" class="preference-preset standalone" data-target="style_keywords" aria-label="Quick-add visual style"><option value="">Quick-add visual style</option><option>Contemporary minimal</option><option>Modern East Asian</option><option>Traditional and elegant</option><option>Experimental avant-garde</option><option>Lively and festive</option><option>Warm and human-centered</option><option>Solemn and commemorative</option><option>Academic and rational</option><option>Dreamlike and poetic</option><option>Natural and rustic</option><option>Retro and nostalgic</option><option>Digital and futuristic</option></select></div>
+<div class="field"><label for="palette">Color Preferences <span class="optional">Optional</span></label><textarea id="palette" name="palette" placeholder="Preferred or prohibited colors, color names, values, or brand-color rules"></textarea><select id="palettePreset" class="preference-preset standalone" data-target="palette" aria-label="Quick-add color preference"><option value="">Quick-add color preference</option><option>High-saturation contrast</option><option>Low-saturation elegance</option><option>Monochrome or analogous</option><option>Black, white, and gray</option><option>Bright and fresh</option><option>Dark and restrained</option><option>Warm palette</option><option>Cool palette</option><option>Natural earth tones</option><option>Traditional Chinese colors</option><option>Prioritize brand colors</option><option>Metallic accents</option></select></div>
+<div class="field"><label for="composition">Composition Preferences <span class="optional">Optional</span></label><textarea id="composition" name="composition" placeholder="Subject placement, negative space, symmetry, or other preferences"></textarea><select id="compositionPreset" class="preference-preset standalone" data-target="composition" aria-label="Quick-add composition preference"><option value="">Quick-add composition preference</option><option>Centered symmetry</option><option>Asymmetrical balance</option><option>Generous negative space</option><option>Full-bleed composition</option><option>Grid-based layout</option><option>Axial layout</option><option>Centered subject</option><option>Offset subject</option><option>Image above text</option><option>Image left, text right</option><option>Vertical rhythm</option><option>Collage composition</option><option>Circular or radial composition</option><option>Modular arrangement</option></select></div>
+</div>
+</section>
+
+<section class="card">
+<div class="step">04 / MATERIALS</div>
+<h2>Cultural Text Materials</h2>
+<p class="intro">Add historical sources, background information, and copy that must be preserved verbatim as separate blocks.</p>
+<div class="grid">
+<div class="field full"><span class="field-title">Text Content</span><p class="hint">Add text blocks one at a time. Each block is treated as one content unit in the deliverable.</p></div>
+<div id="textMaterialList" class="full"></div>
+<div class="field full"><button type="button" id="addTextMaterial" class="secondary">Add Text Material</button></div>
+</div>
+</section>
+
+<section class="card">
+<div class="step">05 / IMAGE ASSETS</div>
+<h2>Upload Image Assets</h2>
+<p class="intro">Upload photos, illustrations, patterns, collection images, or visual references, then choose the use mode and purpose for each image.</p>
+<label id="assetDropZone" class="upload-zone" for="assetFiles">
+<strong>Click to choose images or drag them here</strong>
+<span class="hint">Supports common image formats and SVG. You may select multiple files; originals are not modified in the browser.</span>
+<input id="assetFiles" type="file" accept="image/*,.svg" multiple>
+</label>
+<div class="asset-summary"><strong id="assetCount">No images uploaded</strong><span class="hint">When saved, files are written directly to source/supplied-assets/</span></div>
+<div id="assetList" aria-live="polite"></div>
+</section>
+
+<section class="card">
+<div class="step">06 / OUTPUT</div>
+<h2>Deliverables</h2>
+<p class="intro">Set the overall language requirements, then add each deliverable's type, channel, and specification.</p>
+<div class="grid">
+<div class="field full"><span class="field-title">Overall Language Requirements <span class="optional">Select all that apply</span></span><div class="checks"><label><input type="checkbox" name="languages" value="zh">Chinese</label><label><input type="checkbox" name="languages" value="en">English</label><label><input type="checkbox" name="languages" value="bilingual">Chinese and English in one layout</label><label><input type="checkbox" name="languages" value="other">Other</label></div></div>
+<div class="field full"><label for="other_language">Other Language <span class="optional">Complete when “Other” is selected</span></label><input id="other_language" name="other_language" placeholder="Enter the language"></div>
+<div id="deliverableList" class="full"></div>
+<div class="field full"><button type="button" id="addDeliverable" class="secondary">Add Deliverable</button></div>
+</div>
+</section>
+</form>
+
+<div class="actions">
+<button type="button" id="saveProject">Save to Project Workspace</button>
+<button type="button" id="saveDraft" class="secondary">Save Draft</button>
+<button type="button" id="clearAll" class="clear-all">Clear All</button>
+</div>
+<div id="status" class="status" role="status"></div>
+</main>
+
+<script id="prefill-data" type="application/json">__PREFILL_JSON__</script>
+<script>
+const form=document.getElementById("briefForm");
+const assetList=document.getElementById("assetList");
+const textList=document.getElementById("textMaterialList");
+const deliverableList=document.getElementById("deliverableList");
+const statusEl=document.getElementById("status");
+const progressText=document.getElementById("progressText");
+const progressBar=document.getElementById("progressBar");
+const assetCount=document.getElementById("assetCount");
+const assetDropZone=document.getElementById("assetDropZone");
+const draftKey="cultural-event-kv-draft:"+location.pathname;
+let assets=[],textMaterials=[],deliverables=[],pendingAssets=[];
+let nextAsset=1,nextText=1,nextDeliverable=1;
+const safeName=s=>s.replace(/[^\p{L}\p{N}._-]+/gu,"-").replace(/^-+|-+$/g,"")||"asset";
+const setStatus=s=>statusEl.textContent=s;
+const nextNumber=(items,prefix)=>Math.max(0,...items.map(item=>Number((item.id||"").match(new RegExp(prefix+"-(\\d+)"))?.[1])||0))+1;
+const filled=value=>Boolean(String(value||"").trim());
+const textCategoryGroups=[
+  {value:"promotional-copy",label:"Promotional Copy",categories:[
+    {value:"headline",label:"Title, theme line, or slogan"},
+    {value:"event-description",label:"Event introduction and core promotional copy"}
+  ]},
+  {value:"event-facts",label:"Event Facts",categories:[
+    {value:"event-time",label:"Event date and exact time"},
+    {value:"event-location",label:"Physical venue / online platform"},
+    {value:"organizer",label:"Organizer"},
+    {value:"program",label:"Program, agenda, or session information"},
+    {value:"participation",label:"Participation, ticketing, or registration information"}
+  ]},
+  {value:"cultural-content",label:"Cultural Content and Interpretation",categories:[
+    {value:"curatorial",label:"Curatorial statement or project interpretation"},
+    {value:"background",label:"Cultural background and historical sources"},
+    {value:"person-work",label:"Person, group, collection, or work introduction"}
+  ]},
+  {value:"credits-compliance",label:"Credits and Compliance",categories:[
+    {value:"credit",label:"Partners, sponsors, and other credits"},
+    {value:"legal",label:"Copyright, legal, safety, or risk notice"}
+  ]},
+  {value:"language-other",label:"Language and Other",categories:[
+    {value:"translation",label:"Approved translation or foreign-language copy"},
+    {value:"other",label:"Other text material"}
+  ]}
+];
+const groupForCategory=category=>textCategoryGroups.find(group=>group.categories.some(item=>item.value===category))?.value||"";
+
+function updateProgress(){
+  const fd=new FormData(form);
+  const count=[
+    filled(fd.get("activity_type")),
+    filled(fd.get("event_name")),
+    filled(fd.get("audience")),
+    filled(fd.get("communication_goal")),
+    deliverables.some(item=>filled(item.type)&&filled(item.channel)&&filled(item.specification))
+  ].filter(Boolean).length;
+  progressText.textContent="Reference information provided: "+count+"/5 · Every field may be left blank";
+  progressBar.style.width=(count*20)+"%";
+}
+form.addEventListener("input",updateProgress);
+form.addEventListener("change",updateProgress);
+document.querySelectorAll(".preference-preset").forEach(select=>{
+  select.addEventListener("change",()=>{
+    const value=select.value;
+    const target=document.getElementById(select.dataset.target);
+    if(!value||!target)return;
+    const existing=target.value.split(/[,;\n]+/).map(item=>item.trim()).filter(Boolean);
+    if(!existing.includes(value))target.value=target.value.trim()?target.value.trim()+", "+value:value;
+    target.dispatchEvent(new Event("input",{bubbles:true}));
+    select.value="";
+  });
+});
+
+function makeRow(){
+  const row=document.createElement("div");
+  row.className="grid";
+  row.style.borderTop="1px solid #e6e8e1";
+  row.style.padding="18px 0";
+  return row;
+}
+function addTextMaterial(data={}){
+  const category=data.category==="verbatim"?"other":data.category||"";
+  textMaterials.push({
+    id:data.id||"TEXT-"+String(nextText++).padStart(3,"0"),
+    purpose_group:data.purpose_group||groupForCategory(category),
+    category,
+    content:data.content||"",
+    processing:data.processing==="excerpt-verbatim"?"full-verbatim":data.processing||(data.category==="verbatim"?"full-verbatim":"editable")
+  });
+  renderTextMaterials();
+}
+function renderTextMaterials(){
+  textList.innerHTML="";
+  textMaterials.forEach((item,index)=>{
+    const row=makeRow();
+    row.innerHTML='<div class="field full"><strong>Text Block '+(index+1)+'</strong> <button type="button" class="remove">Remove</button></div>'+
+      '<div class="field"><label>Primary Purpose</label><select class="text-purpose-group"><option value="">Select a broad purpose</option></select></div>'+
+      '<div class="field"><label>Specific Material Type</label><select class="text-category"><option value="">Select a primary purpose first</option></select></div>'+
+      '<div class="field"><label>Text Processing Requirement</label><select class="text-processing"><option value="editable">May be condensed, reorganized, or rewritten</option><option value="full-verbatim">This complete block must appear verbatim</option><option value="generation-prompt">Use as a prompt to generate new copy</option></select></div>'+
+      '<div class="field full"><label>Text Content</label><textarea class="text-content" placeholder="Paste historical source text or required copy accurately"></textarea></div>';
+    const groupControl=row.querySelector(".text-purpose-group");
+    textCategoryGroups.forEach(group=>groupControl.add(new Option(group.label,group.value)));
+    groupControl.value=item.purpose_group;
+    const categoryControl=row.querySelector(".text-category");
+    const renderCategoryOptions=()=>{
+      const group=textCategoryGroups.find(entry=>entry.value===item.purpose_group);
+      categoryControl.innerHTML="";
+      categoryControl.add(new Option(group?"Select a specific material type":"Select a primary purpose first",""));
+      (group?.categories||[]).forEach(category=>categoryControl.add(new Option(category.label,category.value)));
+      categoryControl.disabled=!group;
+      categoryControl.value=item.category;
+    };
+    groupControl.addEventListener("change",()=>{item.purpose_group=groupControl.value;item.category="";renderCategoryOptions()});
+    categoryControl.addEventListener("change",()=>item.category=categoryControl.value);
+    renderCategoryOptions();
+    const bindings=[[".text-processing","processing"],[".text-content","content"]];
+    bindings.forEach(([selector,key])=>{const control=row.querySelector(selector);control.value=item[key];control.addEventListener("input",()=>item[key]=control.value)});
+    row.querySelector(".remove").onclick=()=>{textMaterials.splice(index,1);renderTextMaterials()};
+    textList.appendChild(row);
+  });
+}
+document.getElementById("addTextMaterial").onclick=()=>addTextMaterial();
+
+function addDeliverable(data={}){
+  deliverables.push({id:data.id||"OUTPUT-"+String(nextDeliverable++).padStart(3,"0"),type:data.type||"",channel:data.channel||"",specification:data.specification||""});
+  renderDeliverables();
+  updateProgress();
+}
+function renderDeliverables(){
+  deliverableList.innerHTML="";
+  deliverables.forEach((item,index)=>{
+    const row=makeRow();
+    row.innerHTML='<div class="field full"><strong>Deliverable '+(index+1)+'</strong> <button type="button" class="remove">Remove</button></div>'+
+      '<div class="field"><label>Deliverable Type</label><select class="output-type"><option value="">Select</option><option value="key-visual">Event key visual</option><option value="poster">Event / exhibition poster</option><option value="social-post">Social media post image</option><option value="social-cover">Social media cover</option><option value="banner">Banner / web banner</option><option value="invitation">Invitation</option><option value="signage">On-site signage / display board</option><option value="digital-screen">Digital display / large screen</option><option value="other">Other / infer from context</option></select></div>'+
+      '<div class="field"><label>Channel</label><select class="output-channel"><option value="">Select</option><option value="print">Print</option><option value="venue">On-site venue</option><option value="wechat-official">WeChat Official Account</option><option value="wechat-moments">WeChat Moments</option><option value="xiaohongshu">Xiaohongshu</option><option value="weibo">Weibo</option><option value="douyin">Douyin / short-video platform</option><option value="website">Website / landing page</option><option value="digital-display">Digital display / outdoor screen</option><option value="other">Other / infer from context</option></select></div>'+
+      '<div class="field full"><label>Dimensions or Aspect Ratio</label><select class="output-spec"><option value="">Select</option><option value="1080x1080">1:1 | 1080×1080 px</option><option value="1242x1660">3:4 | 1242×1660 px</option><option value="1080x1350">4:5 | 1080×1350 px</option><option value="1080x1920">9:16 | 1080×1920 px</option><option value="1920x1080">16:9 | 1920×1080 px</option><option value="2:3">2:3 | Portrait poster ratio</option><option value="3:2">3:2 | Landscape ratio</option><option value="A3-portrait">A3 portrait | 297×420 mm</option><option value="A2-portrait">A2 portrait | 420×594 mm</option><option value="A1-portrait">A1 portrait | 594×841 mm</option><option value="other">Other / infer from context</option></select></div>';
+    [[".output-type","type"],[".output-channel","channel"],[".output-spec","specification"]].forEach(([selector,key])=>{
+      const control=row.querySelector(selector);
+      if(item[key]&&![...control.options].some(option=>option.value===item[key]))control.add(new Option("Previous entry: "+item[key],item[key]));
+      control.value=item[key];control.addEventListener("input",()=>{item[key]=control.value;updateProgress()});
+    });
+    row.querySelector(".remove").onclick=()=>{deliverables.splice(index,1);renderDeliverables();updateProgress()};
+    deliverableList.appendChild(row);
+  });
+}
+document.getElementById("addDeliverable").onclick=()=>addDeliverable();
+
+function renderAssets(){
+  assetList.innerHTML="";
+  assetCount.textContent=assets.length?assets.length+" image(s) uploaded":"No images uploaded";
+  if(!assets.length){
+    const empty=document.createElement("div");empty.className="asset-empty";empty.textContent="Uploaded images appear here with controls for use mode, purpose, and editing restrictions.";assetList.appendChild(empty);return;
+  }
+  assets.forEach((item,index)=>{
+    const row=document.createElement("div");
+    row.className="asset";
+    row.innerHTML='<img class="asset-preview" alt="">'+
+      '<div class="name"></div><button type="button" class="remove">Remove</button>'+
+      '<div class="meta">'+
+      '<div><label>Use Mode</label><select class="asset-role"><option value="">Select</option><option value="required">Must be used</option><option value="visual-reference">Visual reference only</option></select></div>'+
+      '<div><label>Image Purpose</label><select class="asset-purpose"><option value="">Select</option><option value="hero">Primary visual subject</option><option value="background">Background material</option><option value="color-reference">Color reference</option><option value="layout-reference">Layout reference</option><option value="style-reference">Style reference</option><option value="composition-reference">Composition reference</option><option value="motif-reference">Pattern / motif reference</option><option value="other">Other / infer from context</option></select></div>'+
+      '<div class="full"><label>Editing Restrictions and Notes <span class="optional">Optional</span></label><textarea class="asset-notes" placeholder="Example: do not crop the person; color adjustment allowed; composition reference only, do not copy"></textarea></div></div>';
+    const preview=row.querySelector(".asset-preview");preview.alt="Preview of "+item.file.name;preview.src=item.previewUrl;
+    const name=row.querySelector(".name");
+    const strong=document.createElement("strong");strong.textContent=item.id;
+    const detail=document.createElement("span");detail.className="note";detail.textContent=(item.file.type||"unknown")+" · "+Math.ceil(item.file.size/1024)+" KB";
+    name.append(strong,document.createElement("br"),document.createTextNode(item.file.name),document.createElement("br"),detail);
+    [[".asset-role","role"],[".asset-purpose","purpose"],[".asset-notes","notes"]].forEach(([selector,key])=>{
+      const control=row.querySelector(selector);control.value=item[key];control.addEventListener("input",()=>item[key]=control.value);
+    });
+    row.querySelector(".remove").onclick=()=>{URL.revokeObjectURL(item.previewUrl);assets.splice(index,1);renderAssets()};
+    assetList.appendChild(row);
+  });
+}
+function addAssetFiles(fileList){
+  [...fileList].filter(file=>file.type.startsWith("image/")||/\.svg$/i.test(file.name)).forEach(file=>{
+    const index=pendingAssets.findIndex(item=>item.original_name===file.name&&item.size_bytes===file.size);
+    const previous=index>=0?pendingAssets.splice(index,1)[0]:null;
+    const referenceRoles=["visual-reference","layout-reference","color-reference","reference-only","excluded"];
+    const role=referenceRoles.includes(previous?.role)?"visual-reference":["required","required-hero"].includes(previous?.role)?"required":"";
+    const allowedPurposes=["hero","background","color-reference","layout-reference","style-reference","composition-reference","motif-reference","other"];
+    const purpose=allowedPurposes.includes(previous?.purpose)?previous.purpose:previous?.purpose?"other":"";
+    assets.push({id:previous?.id||"ASSET-"+String(nextAsset++).padStart(3,"0"),file,previewUrl:URL.createObjectURL(file),role,purpose,notes:previous?.notes||""});
+  });
+  renderAssets();
+}
+document.getElementById("assetFiles").addEventListener("change",e=>{
+  addAssetFiles(e.target.files);e.target.value="";
+});
+assetDropZone.addEventListener("dragover",e=>{e.preventDefault();assetDropZone.classList.add("dragging")});
+assetDropZone.addEventListener("dragleave",()=>assetDropZone.classList.remove("dragging"));
+assetDropZone.addEventListener("drop",e=>{e.preventDefault();assetDropZone.classList.remove("dragging");addAssetFiles(e.dataTransfer.files)});
+
+function collect(){
+  const fd=new FormData(form);
+  return {
+    schema_version:"2.4",exported_at:new Date().toISOString(),
+    activity:{type:fd.get("activity_type")||"",name:fd.get("event_name")||"",theme:fd.get("theme")||""},
+    communication:{audience:fd.get("audience")||"",goal:fd.get("communication_goal")||"",participation_info:fd.get("participation_info")||""},
+    visual:{style_keywords:fd.get("style_keywords")||"",palette:fd.get("palette")||"",composition:fd.get("composition")||""},
+    text_materials:textMaterials.filter(item=>filled(item.content)).map(item=>({id:item.id,purpose_group:item.purpose_group,category:item.category,content:item.content,processing:item.processing})),
+    assets:assets.map(item=>({id:item.id,original_name:item.file.name,saved_name:item.id+"_"+safeName(item.file.name),mime_type:item.file.type,size_bytes:item.file.size,last_modified:item.file.lastModified,role:item.role,purpose:item.purpose,notes:item.notes})),
+    delivery:{languages:fd.getAll("languages"),other_language:fd.get("other_language")||"",items:deliverables.filter(item=>[item.type,item.channel,item.specification].some(filled)).map(item=>({...item}))},
+    confirmation:{status:"pending",reviewer:"",notes:""}
+  };
+}
+document.getElementById("saveDraft").onclick=()=>{
+  try{localStorage.setItem(draftKey,JSON.stringify(collect()));setStatus("Draft saved in this browser. Uploaded files must be selected again after reopening.")}
+  catch(err){setStatus("Could not save the local draft. Export brief.json instead: "+err.message)}
+};
+document.getElementById("clearAll").onclick=()=>{
+  if(!window.confirm("Clear all entered content, selected files, and the local draft? This cannot be undone."))return;
+  form.reset();
+  assets.forEach(item=>URL.revokeObjectURL(item.previewUrl));assets=[];textMaterials=[];deliverables=[];pendingAssets=[];
+  nextAsset=1;nextText=1;nextDeliverable=1;
+  renderAssets();addTextMaterial();addDeliverable();updateProgress();
+  try{localStorage.removeItem(draftKey);setStatus("Form content, selected files, and the local draft were cleared.")}
+  catch(err){setStatus("Form content and selected files were cleared, but the local draft could not be removed: "+err.message)}
+};
+document.getElementById("saveProject").onclick=async event=>{
+  const button=event.currentTarget;
+  const data=collect();
+  button.disabled=true;
+  setStatus("Saving to the project workspace…");
+  try{
+    for(const item of assets){
+      const savedName=item.id+"_"+safeName(item.file.name);
+      const response=await fetch("/api/assets/"+encodeURIComponent(savedName),{method:"POST",headers:{"Content-Type":item.file.type||"application/octet-stream"},body:item.file});
+      const result=await response.json().catch(()=>({}));
+      if(!response.ok)throw new Error(result.error||"Could not save image: "+savedName);
+    }
+    const response=await fetch("/api/brief",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});
+    const result=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(result.error||"Could not save brief.json");
+    const pendingFiles=pendingAssets.length;
+    setStatus("Saved directly to: "+result.project_root+(pendingFiles?". "+pendingFiles+" draft attachment(s) still need to be selected again.":""));
+  }catch(err){
+    setStatus("Save failed: "+err.message+". Open the form through serve-form.py in the project.");
+  }finally{button.disabled=false}
+};
+function applyData(data){
+  const activity=data.activity||{};
+  const old=data.content_master||{};
+  const communication=data.communication||{};
+  const visual=data.visual||{};
+  const eventDate=[activity.date||old.event_date,activity.time||old.opening_hours].filter(filled).join("; ");
+  const fields={
+    activity_type:activity.type||data.intake?.activity_type,event_name:activity.name||old.event_name,theme:activity.theme||old.tagline,
+    audience:communication.audience,communication_goal:communication.goal,
+    participation_info:communication.participation_info||[
+      communication.participation_guidance||communication.action_copy||communication.participation_method||old.cta,
+      communication.participation_entry
+    ].filter(filled).join("\n"),
+    style_keywords:visual.style_keywords,palette:visual.palette,composition:visual.composition,
+    other_language:data.delivery?.other_language
+  };
+  Object.entries(fields).forEach(([name,value])=>{if(form.elements[name]&&value!=null)form.elements[name].value=value});
+  const languages=data.delivery?.languages||data.deliverable?.languages||[];
+  [...form.querySelectorAll('input[name="languages"]')].forEach(box=>box.checked=languages.includes(box.value));
+  textMaterials=[];deliverables=[];assets=[];
+  if(Array.isArray(data.text_materials))data.text_materials.forEach(addTextMaterial);
+  else {
+    if(data.visual?.cultural_context)addTextMaterial({category:"background",content:data.visual.cultural_context});
+    if(data.hierarchy?.verbatim_copy)addTextMaterial({category:"other",content:data.hierarchy.verbatim_copy,processing:"full-verbatim"});
+  }
+  [
+    {category:"event-time",content:eventDate},
+    {category:"event-location",content:activity.venue||old.venue},
+    {category:"organizer",content:activity.organizer||old.organizer},
+    {category:"credit",content:data.credit_copy}
+  ].forEach(item=>{
+    if(filled(item.content)&&!textMaterials.some(existing=>existing.category===item.category))addTextMaterial({...item,processing:"full-verbatim"});
+  });
+  const outputItems=data.delivery?.items||(
+    data.deliverable?.type?[{type:data.deliverable.type,channel:communication.channels||"",specification:data.deliverable.width&&data.deliverable.height?
+      data.deliverable.width+"×"+data.deliverable.height+" "+(data.deliverable.unit||"px"):""}]:[]
+  );
+  outputItems.forEach(addDeliverable);
+  pendingAssets=Array.isArray(data.assets)?[...data.assets]:[];
+  const legacyQrName=communication.qr_code?.original_name||communication.qr_code?.missing_file_name||"";
+  nextAsset=nextNumber(pendingAssets,"ASSET");
+  nextText=nextNumber(textMaterials,"TEXT");
+  nextDeliverable=nextNumber(deliverables,"OUTPUT");
+  if(!textMaterials.length)addTextMaterial();
+  if(!deliverables.length)addDeliverable();
+  renderAssets();
+  const notices=[];
+  if(pendingAssets.length)notices.push("File notes were restored; select the upload files again.");
+  if(legacyQrName)notices.push("The QR-code attachment in the old draft was not imported; this form no longer has a dedicated QR-code upload.");
+  if(data.supplementary_sources||(data.text_materials||[]).some(item=>item.description||item.source_url||item.original_name))notices.push("Supplementary materials and source fields from the old draft were removed; review the original draft.");
+  if(notices.length)setStatus(notices.join(" "));
+  updateProgress();
+}
+try{
+  const saved=localStorage.getItem(draftKey);
+  const raw=document.getElementById("prefill-data").textContent.trim();
+  const prefill=raw.startsWith("{")?JSON.parse(raw):{};
+  if(saved)applyData(JSON.parse(saved));
+  else if(Object.keys(prefill).length)applyData(prefill);
+  else {addTextMaterial();addDeliverable();renderAssets();updateProgress()}
+}catch(err){addTextMaterial();addDeliverable();renderAssets();updateProgress();setStatus("Prefill data could not be loaded: "+err.message)}
+</script>
+</body>
+</html>

@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>文化活动主视觉｜设计 Brief</title>
+<style>
+:root{font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;color:#20312c;background:#f5f3ed}
+*{box-sizing:border-box}body{margin:0}main{max-width:900px;margin:auto;padding:36px 22px 96px}
+header{padding:18px 0 26px}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.16em;color:#a45131}h1{font-size:clamp(30px,5vw,48px);line-height:1.2;margin:10px 0}h2{font-size:22px;margin:0 0 8px}p{line-height:1.65}.lead{max-width:680px;color:#52615c;margin:0}.progress{display:flex;align-items:center;gap:14px;margin-top:25px;font-size:13px;color:#52615c}.bar{height:8px;flex:1;background:#deddd3;border-radius:20px;overflow:hidden}.bar span{display:block;width:0;height:100%;background:#a45131;transition:width .2s}
+.card{background:#fff;border:1px solid #dddcd2;border-radius:20px;padding:30px;margin:18px 0;box-shadow:0 10px 30px #20312c09}.step{font-size:12px;font-weight:800;letter-spacing:.12em;color:#a45131}.intro{margin:0 0 24px;color:#65716d;font-size:14px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.full{grid-column:1/-1}.field{min-width:0}
+label,.field-title{display:block;font-size:14px;font-weight:700;margin:0 0 7px}.optional{font-weight:400;color:#73807b}.hint,.note{font-size:12px;color:#64716d;margin:6px 0 0;line-height:1.55}input,select,textarea{width:100%;border:1px solid #bfc7c1;border-radius:10px;padding:12px 13px;background:#fff;color:#20312c;font:inherit;line-height:1.4}input:focus,select:focus,textarea:focus{outline:3px solid #cddfd1;border-color:#387553}textarea{min-height:94px;resize:vertical}input::placeholder,textarea::placeholder{color:#84908a}.preference-preset{background:#f7faf5;border-color:#cbd6cc}.preference-preset.standalone{margin-top:10px}.checks{display:flex;flex-wrap:wrap;gap:10px 18px}.checks label{font-weight:500;display:flex;align-items:center;gap:7px;margin:0}.checks input{width:auto;accent-color:#387553}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}.chip{background:#eef2eb;color:#31543e;border:1px solid #d3dfd1;padding:7px 12px;font-size:12px}.chip:hover{background:#dbe9d7}details{border-top:1px solid #e7e9e2;margin-top:24px;padding-top:18px}summary{cursor:pointer;font-weight:700;color:#31543e}details .grid{margin-top:20px}.upload-zone{display:block;border:2px dashed #9db1a3;border-radius:16px;padding:28px;text-align:center;background:#f7faf5;cursor:pointer;transition:.2s}.upload-zone:hover,.upload-zone.dragging{border-color:#387553;background:#edf6ec}.upload-zone strong{display:block;font-size:16px;color:#24543d}.upload-zone input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}.asset-summary{display:flex;justify-content:space-between;gap:16px;align-items:center;margin:18px 0 4px}.asset{display:grid;grid-template-columns:110px repeat(2,minmax(130px,1fr));gap:14px;align-items:start;padding:18px 0;border-top:1px solid #e6e8e1}.asset:first-child{border-top:0}.asset-preview{width:110px;height:110px;border-radius:12px;object-fit:cover;background:#eef0ea;border:1px solid #d7dbd3}.asset .name{word-break:break-all;font-size:13px}.asset .meta{grid-column:2/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.asset label{font-size:12px}.asset select,.asset input,.asset textarea{padding:9px}.asset textarea{min-height:70px}.asset .remove{justify-self:start}.asset-empty{padding:18px 0;color:#64716d;font-size:13px}
+.actions{position:sticky;bottom:0;display:flex;flex-wrap:wrap;gap:9px;background:#f5f3edf2;padding:14px 0;border-top:1px solid #deddd3;backdrop-filter:blur(8px)}button{border:0;border-radius:999px;padding:11px 17px;font-weight:700;cursor:pointer;background:#24543d;color:#fff}button.secondary{background:#e2e8df;color:#24543d}.actions .clear-all{flex:0 0 auto;margin-left:auto;background:#f8e2dc;color:#a34537}.remove{background:#a34537;padding:9px 12px}.status{min-height:24px;padding-top:8px;color:#24543d;font-weight:700;font-size:13px}.review{white-space:pre-line;background:#edf4eb;border-left:4px solid #387553;padding:17px;border-radius:9px;margin-top:10px;line-height:1.7}
+@media(max-width:700px){main{padding:24px 16px 100px}.card{padding:23px 18px}.grid,.asset,.asset .meta{grid-template-columns:1fr}.full,.asset .name,.asset .meta{grid-column:auto}.asset-preview{width:100%;height:180px}.actions button{flex:1 1 45%}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="eyebrow">DESIGN BRIEF / CULTURAL EVENT</div>
+<h1>文化活动主视觉 · 设计 Brief</h1>
+<p class="lead">所有内容均为选填。填写得越多，生成方向越贴近预期；留空不会影响下一步，系统会根据已有文字、图片和上下文补全必要的设计信息。</p>
+<div class="progress" aria-live="polite"><span id="progressText">已提供参考信息 0/5</span><div class="bar" aria-hidden="true"><span id="progressBar"></span></div></div>
+</header>
+
+<form id="briefForm">
+<section class="card">
+<div class="step">01 / EVENT</div>
+<h2>活动内容</h2>
+<p class="intro">填写活动类型、正式名称与主题。日期时间、地点平台和主办方请在“文化文字资料”中分别添加对应文字块。</p>
+<div class="grid">
+<div class="field"><label for="activity_type">活动分类</label><select id="activity_type" name="activity_type"><option value="">待定</option><option>展览</option><option>演出</option><option>节庆</option><option>讲座或论坛</option><option>其他</option></select></div>
+<div class="field"><label for="event_name">活动正式名称</label><input id="event_name" name="event_name" placeholder="使用对外发布名称；暂定请注明"></div>
+<div class="field full"><label for="theme">活动主题 <span class="optional">可选</span></label><input id="theme" name="theme" placeholder="主题说明或已确定的主题语"></div>
+</div>
+</section>
+
+<section class="card">
+<div class="step">02 / COMMUNICATION</div>
+<h2>宣传对象与目标</h2>
+<p class="intro">明确主要观众与画面要完成的传播任务。</p>
+<div class="grid">
+<div class="field"><label for="audience">目标观众</label><textarea id="audience" name="audience" placeholder="人群特征、兴趣或专业背景"></textarea></div>
+<div class="field"><label for="communication_goal">核心传播目标</label><textarea id="communication_goal" name="communication_goal" placeholder="希望观众理解或记住什么"></textarea></div>
+<div class="field full"><label for="participation_info">参与信息 <span class="optional">选填</span></label><textarea id="participation_info" name="participation_info" placeholder="扫码预约；预约链接：https://…&#10;现场免费入场，无需预约"></textarea></div>
+</div>
+</section>
+
+<section class="card">
+<div class="step">03 / VISUAL</div>
+<h2>视觉偏好</h2>
+<p class="intro">可以自由填写，也可以从每项下方的快捷选项中选择；选中文字会自动加入文本框。</p>
+<div class="grid">
+<div class="field full"><label for="style_keywords">期望的画面风格 <span class="optional">可选</span></label><textarea id="style_keywords" name="style_keywords" placeholder="氛围、质感或参考方向"></textarea><select id="stylePreset" class="preference-preset standalone" data-target="style_keywords" aria-label="快捷添加画面风格"><option value="">快捷添加画面风格</option><option>当代极简</option><option>现代东方</option><option>传统典雅</option><option>实验先锋</option><option>活泼节庆</option><option>温暖人文</option><option>庄重纪念</option><option>学术理性</option><option>梦幻诗意</option><option>自然质朴</option><option>复古怀旧</option><option>数字未来</option></select></div>
+<div class="field"><label for="palette">配色偏好 <span class="optional">可选</span></label><textarea id="palette" name="palette" placeholder="使用或禁用的颜色、颜色名称、色值或品牌色规范"></textarea><select id="palettePreset" class="preference-preset standalone" data-target="palette" aria-label="快捷添加配色偏好"><option value="">快捷添加配色偏好</option><option>高饱和撞色</option><option>低饱和雅致</option><option>单色或近似色</option><option>黑白灰</option><option>明亮清新</option><option>深色沉稳</option><option>暖色调</option><option>冷色调</option><option>自然大地色</option><option>中国传统色</option><option>品牌色优先</option><option>金属色点缀</option></select></div>
+<div class="field"><label for="composition">构图偏好 <span class="optional">可选</span></label><textarea id="composition" name="composition" placeholder="主体位置、留白、对称或其他偏好"></textarea><select id="compositionPreset" class="preference-preset standalone" data-target="composition" aria-label="快捷添加构图偏好"><option value="">快捷添加构图偏好</option><option>居中对称</option><option>非对称平衡</option><option>大面积留白</option><option>满版构图</option><option>网格化布局</option><option>轴线式布局</option><option>主体居中</option><option>主体偏置</option><option>上图下文</option><option>左图右文</option><option>纵向节奏</option><option>拼贴式构图</option><option>环形或放射构图</option><option>模块化排布</option></select></div>
+</div>
+</section>
+
+<section class="card">
+<div class="step">04 / MATERIALS</div>
+<h2>文化文字资料</h2>
+<p class="intro">将史料、背景内容和必须原样使用的文字逐块填写。</p>
+<div class="grid">
+<div class="field full"><span class="field-title">文字内容</span><p class="hint">可逐项添加文字块，每个文字块在成品中作为一个整体出现。</p></div>
+<div id="textMaterialList" class="full"></div>
+<div class="field full"><button type="button" id="addTextMaterial" class="secondary">添加文字资料</button></div>
+</div>
+</section>
+
+<section class="card">
+<div class="step">05 / IMAGE ASSETS</div>
+<h2>图片素材上传</h2>
+<p class="intro">上传照片、插画、纹样、馆藏图像或视觉参考，并可为每张图片选择使用方式和用途。</p>
+<label id="assetDropZone" class="upload-zone" for="assetFiles">
+<strong>点击选择或拖放图片到这里</strong>
+<span class="hint">支持常见图片格式与 SVG，可一次选择多张；原文件不会在浏览器内被修改。</span>
+<input id="assetFiles" type="file" accept="image/*,.svg" multiple>
+</label>
+<div class="asset-summary"><strong id="assetCount">尚未上传图片</strong><span class="hint">保存项目资料时，文件会直接写入 source/supplied-assets/</span></div>
+<div id="assetList" aria-live="polite"></div>
+</section>
+
+<section class="card">
+<div class="step">06 / OUTPUT</div>
+<h2>成品交付</h2>
+<p class="intro">整体语言要求统一填写；成品类型、渠道和规格逐项记录。</p>
+<div class="grid">
+<div class="field full"><span class="field-title">整体语言要求 <span class="optional">可多选</span></span><div class="checks"><label><input type="checkbox" name="languages" value="zh">中文</label><label><input type="checkbox" name="languages" value="en">英文</label><label><input type="checkbox" name="languages" value="bilingual">中英同版</label><label><input type="checkbox" name="languages" value="other">其他</label></div></div>
+<div class="field full"><label for="other_language">其他语言 <span class="optional">选择“其他”时填写</span></label><input id="other_language" name="other_language" placeholder="填写具体语言"></div>
+<div id="deliverableList" class="full"></div>
+<div class="field full"><button type="button" id="addDeliverable" class="secondary">添加成品要求</button></div>
+</div>
+</section>
+</form>
+
+<div class="actions">
+<button type="button" id="saveProject">保存到项目工作区</button>
+<button type="button" id="saveDraft" class="secondary">保存草稿</button>
+<button type="button" id="clearAll" class="clear-all">一键清空</button>
+</div>
+<div id="status" class="status" role="status"></div>
+</main>
+
+<script id="prefill-data" type="application/json">__PREFILL_JSON__</script>
+<script>
+const form=document.getElementById("briefForm");
+const assetList=document.getElementById("assetList");
+const textList=document.getElementById("textMaterialList");
+const deliverableList=document.getElementById("deliverableList");
+const statusEl=document.getElementById("status");
+const progressText=document.getElementById("progressText");
+const progressBar=document.getElementById("progressBar");
+const assetCount=document.getElementById("assetCount");
+const assetDropZone=document.getElementById("assetDropZone");
+const draftKey="cultural-event-kv-draft:"+location.pathname;
+let assets=[],textMaterials=[],deliverables=[],pendingAssets=[];
+let nextAsset=1,nextText=1,nextDeliverable=1;
+const safeName=s=>s.replace(/[^\p{L}\p{N}._-]+/gu,"-").replace(/^-+|-+$/g,"")||"asset";
+const setStatus=s=>statusEl.textContent=s;
+const nextNumber=(items,prefix)=>Math.max(0,...items.map(item=>Number((item.id||"").match(new RegExp(prefix+"-(\\d+)"))?.[1])||0))+1;
+const filled=value=>Boolean(String(value||"").trim());
+const textCategoryGroups=[
+  {value:"promotional-copy",label:"传播与宣传文案",categories:[
+    {value:"headline",label:"标题、主题语或宣传口号"},
+    {value:"event-description",label:"活动介绍与核心文案"}
+  ]},
+  {value:"event-facts",label:"活动事实信息",categories:[
+    {value:"event-time",label:"活动日期与具体时间"},
+    {value:"event-location",label:"线下地点 / 线上平台"},
+    {value:"organizer",label:"主办方"},
+    {value:"program",label:"节目单、议程或场次信息"},
+    {value:"participation",label:"参与方式、票务或报名说明"}
+  ]},
+  {value:"cultural-content",label:"文化内容与阐释",categories:[
+    {value:"curatorial",label:"策展说明或项目阐释"},
+    {value:"background",label:"文化背景与史料"},
+    {value:"person-work",label:"人物、团体或作品介绍"}
+  ]},
+  {value:"credits-compliance",label:"机构署名与合规",categories:[
+    {value:"credit",label:"协办、赞助与其他署名"},
+    {value:"legal",label:"版权、法律或风险提示"}
+  ]},
+  {value:"language-other",label:"语言与其他",categories:[
+    {value:"translation",label:"指定译文或外语文案"},
+    {value:"other",label:"其他文字资料"}
+  ]}
+];
+const groupForCategory=category=>textCategoryGroups.find(group=>group.categories.some(item=>item.value===category))?.value||"";
+
+function updateProgress(){
+  const fd=new FormData(form);
+  const count=[
+    filled(fd.get("activity_type")),
+    filled(fd.get("event_name")),
+    filled(fd.get("audience")),
+    filled(fd.get("communication_goal")),
+    deliverables.some(item=>filled(item.type)&&filled(item.channel)&&filled(item.specification))
+  ].filter(Boolean).length;
+  progressText.textContent="已提供参考信息 "+count+"/5 · 所有项目均可留空并继续";
+  progressBar.style.width=(count*20)+"%";
+}
+form.addEventListener("input",updateProgress);
+form.addEventListener("change",updateProgress);
+document.querySelectorAll(".preference-preset").forEach(select=>{
+  select.addEventListener("change",()=>{
+    const value=select.value;
+    const target=document.getElementById(select.dataset.target);
+    if(!value||!target)return;
+    const existing=target.value.split(/[、，,；;\n]+/).map(item=>item.trim()).filter(Boolean);
+    if(!existing.includes(value))target.value=target.value.trim()?target.value.trim()+"、"+value:value;
+    target.dispatchEvent(new Event("input",{bubbles:true}));
+    select.value="";
+  });
+});
+
+function makeRow(){
+  const row=document.createElement("div");
+  row.className="grid";
+  row.style.borderTop="1px solid #e6e8e1";
+  row.style.padding="18px 0";
+  return row;
+}
+function addTextMaterial(data={}){
+  const category=data.category==="verbatim"?"other":data.category||"";
+  textMaterials.push({
+    id:data.id||"TEXT-"+String(nextText++).padStart(3,"0"),
+    purpose_group:data.purpose_group||groupForCategory(category),
+    category,
+    content:data.content||"",
+    processing:data.processing==="excerpt-verbatim"?"full-verbatim":data.processing||(data.category==="verbatim"?"full-verbatim":"editable")
+  });
+  renderTextMaterials();
+}
+function renderTextMaterials(){
+  textList.innerHTML="";
+  textMaterials.forEach((item,index)=>{
+    const row=makeRow();
+    row.innerHTML='<div class="field full"><strong>文字块 '+(index+1)+'</strong> <button type="button" class="remove">移除</button></div>'+
+      '<div class="field"><label>一级用途分类</label><select class="text-purpose-group"><option value="">请选择大致用途</option></select></div>'+
+      '<div class="field"><label>二级资料类型</label><select class="text-category"><option value="">请先选择一级用途</option></select></div>'+
+      '<div class="field"><label>文字处理要求</label><select class="text-processing"><option value="editable">可提炼、删减或改写</option><option value="full-verbatim">本块文字全文必须原样呈现</option><option value="generation-prompt">视为提示词进行生成</option></select></div>'+
+      '<div class="field full"><label>文字内容</label><textarea class="text-content" placeholder="史料原文或必用文案请准确粘贴"></textarea></div>';
+    const groupControl=row.querySelector(".text-purpose-group");
+    textCategoryGroups.forEach(group=>groupControl.add(new Option(group.label,group.value)));
+    groupControl.value=item.purpose_group;
+    const categoryControl=row.querySelector(".text-category");
+    const renderCategoryOptions=()=>{
+      const group=textCategoryGroups.find(entry=>entry.value===item.purpose_group);
+      categoryControl.innerHTML="";
+      categoryControl.add(new Option(group?"请选择具体资料类型":"请先选择一级用途",""));
+      (group?.categories||[]).forEach(category=>categoryControl.add(new Option(category.label,category.value)));
+      categoryControl.disabled=!group;
+      categoryControl.value=item.category;
+    };
+    groupControl.addEventListener("change",()=>{item.purpose_group=groupControl.value;item.category="";renderCategoryOptions()});
+    categoryControl.addEventListener("change",()=>item.category=categoryControl.value);
+    renderCategoryOptions();
+    const bindings=[[".text-processing","processing"],[".text-content","content"]];
+    bindings.forEach(([selector,key])=>{const control=row.querySelector(selector);control.value=item[key];control.addEventListener("input",()=>item[key]=control.value)});
+    row.querySelector(".remove").onclick=()=>{textMaterials.splice(index,1);renderTextMaterials()};
+    textList.appendChild(row);
+  });
+}
+document.getElementById("addTextMaterial").onclick=()=>addTextMaterial();
+
+function addDeliverable(data={}){
+  deliverables.push({id:data.id||"OUTPUT-"+String(nextDeliverable++).padStart(3,"0"),type:data.type||"",channel:data.channel||"",specification:data.specification||""});
+  renderDeliverables();
+  updateProgress();
+}
+function renderDeliverables(){
+  deliverableList.innerHTML="";
+  deliverables.forEach((item,index)=>{
+    const row=makeRow();
+    row.innerHTML='<div class="field full"><strong>成品 '+(index+1)+'</strong> <button type="button" class="remove">移除</button></div>'+
+      '<div class="field"><label>成品类型</label><select class="output-type"><option value="">请选择</option><option value="key-visual">活动主视觉</option><option value="poster">活动／展览海报</option><option value="social-post">社交媒体配图</option><option value="social-cover">社交媒体封面</option><option value="banner">横幅／网页 Banner</option><option value="invitation">邀请函</option><option value="signage">现场导视／展板</option><option value="digital-screen">数字屏幕／大屏画面</option><option value="other">其他／由系统判断</option></select></div>'+
+      '<div class="field"><label>使用渠道</label><select class="output-channel"><option value="">请选择</option><option value="print">线下印刷</option><option value="venue">场馆现场</option><option value="wechat-official">微信公众号</option><option value="wechat-moments">微信朋友圈</option><option value="xiaohongshu">小红书</option><option value="weibo">微博</option><option value="douyin">抖音／短视频平台</option><option value="website">网站／落地页</option><option value="digital-display">数字屏幕／户外大屏</option><option value="other">其他／由系统判断</option></select></div>'+
+      '<div class="field full"><label>尺寸或画面比例</label><select class="output-spec"><option value="">请选择</option><option value="1080x1080">1:1｜1080×1080 px</option><option value="1242x1660">3:4｜1242×1660 px</option><option value="1080x1350">4:5｜1080×1350 px</option><option value="1080x1920">9:16｜1080×1920 px</option><option value="1920x1080">16:9｜1920×1080 px</option><option value="2:3">2:3｜竖版海报比例</option><option value="3:2">3:2｜横版画面比例</option><option value="A3-portrait">A3 竖版｜297×420 mm</option><option value="A2-portrait">A2 竖版｜420×594 mm</option><option value="A1-portrait">A1 竖版｜594×841 mm</option><option value="other">其他／由系统判断</option></select></div>';
+    [[".output-type","type"],[".output-channel","channel"],[".output-spec","specification"]].forEach(([selector,key])=>{
+      const control=row.querySelector(selector);
+      if(item[key]&&![...control.options].some(option=>option.value===item[key]))control.add(new Option("原填写："+item[key],item[key]));
+      control.value=item[key];control.addEventListener("input",()=>{item[key]=control.value;updateProgress()});
+    });
+    row.querySelector(".remove").onclick=()=>{deliverables.splice(index,1);renderDeliverables();updateProgress()};
+    deliverableList.appendChild(row);
+  });
+}
+document.getElementById("addDeliverable").onclick=()=>addDeliverable();
+
+function renderAssets(){
+  assetList.innerHTML="";
+  assetCount.textContent=assets.length?"已上传 "+assets.length+" 张图片":"尚未上传图片";
+  if(!assets.length){
+    const empty=document.createElement("div");empty.className="asset-empty";empty.textContent="上传后可在这里预览，并逐张设置使用方式、图片用途和编辑限制。";assetList.appendChild(empty);return;
+  }
+  assets.forEach((item,index)=>{
+    const row=document.createElement("div");
+    row.className="asset";
+    row.innerHTML='<img class="asset-preview" alt="">'+
+      '<div class="name"></div><button type="button" class="remove">移除</button>'+
+      '<div class="meta">'+
+      '<div><label>使用方式</label><select class="asset-role"><option value="">请选择</option><option value="required">必须使用</option><option value="visual-reference">仅作视觉参考</option></select></div>'+
+      '<div><label>图片用途</label><select class="asset-purpose"><option value="">请选择</option><option value="hero">作为画面主体</option><option value="background">作为背景素材</option><option value="color-reference">参考配色</option><option value="layout-reference">参考版式</option><option value="style-reference">参考风格</option><option value="composition-reference">参考构图</option><option value="motif-reference">参考纹样／元素</option><option value="other">其他／由系统判断</option></select></div>'+
+      '<div class="full"><label>编辑限制与补充说明 <span class="optional">选填</span></label><textarea class="asset-notes" placeholder="例如：不得裁切人物；可调色；仅参考构图，不得复制"></textarea></div></div>';
+    const preview=row.querySelector(".asset-preview");preview.alt=item.file.name+" 的预览";preview.src=item.previewUrl;
+    const name=row.querySelector(".name");
+    const strong=document.createElement("strong");strong.textContent=item.id;
+    const detail=document.createElement("span");detail.className="note";detail.textContent=(item.file.type||"unknown")+" · "+Math.ceil(item.file.size/1024)+" KB";
+    name.append(strong,document.createElement("br"),document.createTextNode(item.file.name),document.createElement("br"),detail);
+    [[".asset-role","role"],[".asset-purpose","purpose"],[".asset-notes","notes"]].forEach(([selector,key])=>{
+      const control=row.querySelector(selector);control.value=item[key];control.addEventListener("input",()=>item[key]=control.value);
+    });
+    row.querySelector(".remove").onclick=()=>{URL.revokeObjectURL(item.previewUrl);assets.splice(index,1);renderAssets()};
+    assetList.appendChild(row);
+  });
+}
+function addAssetFiles(fileList){
+  [...fileList].filter(file=>file.type.startsWith("image/")||/\.svg$/i.test(file.name)).forEach(file=>{
+    const index=pendingAssets.findIndex(item=>item.original_name===file.name&&item.size_bytes===file.size);
+    const previous=index>=0?pendingAssets.splice(index,1)[0]:null;
+    const referenceRoles=["visual-reference","layout-reference","color-reference","reference-only","excluded"];
+    const role=referenceRoles.includes(previous?.role)?"visual-reference":["required","required-hero"].includes(previous?.role)?"required":"";
+    const allowedPurposes=["hero","background","color-reference","layout-reference","style-reference","composition-reference","motif-reference","other"];
+    const purpose=allowedPurposes.includes(previous?.purpose)?previous.purpose:previous?.purpose?"other":"";
+    assets.push({id:previous?.id||"ASSET-"+String(nextAsset++).padStart(3,"0"),file,previewUrl:URL.createObjectURL(file),role,purpose,notes:previous?.notes||""});
+  });
+  renderAssets();
+}
+document.getElementById("assetFiles").addEventListener("change",e=>{
+  addAssetFiles(e.target.files);e.target.value="";
+});
+assetDropZone.addEventListener("dragover",e=>{e.preventDefault();assetDropZone.classList.add("dragging")});
+assetDropZone.addEventListener("dragleave",()=>assetDropZone.classList.remove("dragging"));
+assetDropZone.addEventListener("drop",e=>{e.preventDefault();assetDropZone.classList.remove("dragging");addAssetFiles(e.dataTransfer.files)});
+
+function collect(){
+  const fd=new FormData(form);
+  return {
+    schema_version:"2.4",exported_at:new Date().toISOString(),
+    activity:{type:fd.get("activity_type")||"",name:fd.get("event_name")||"",theme:fd.get("theme")||""},
+    communication:{audience:fd.get("audience")||"",goal:fd.get("communication_goal")||"",participation_info:fd.get("participation_info")||""},
+    visual:{style_keywords:fd.get("style_keywords")||"",palette:fd.get("palette")||"",composition:fd.get("composition")||""},
+    text_materials:textMaterials.filter(item=>filled(item.content)).map(item=>({id:item.id,purpose_group:item.purpose_group,category:item.category,content:item.content,processing:item.processing})),
+    assets:assets.map(item=>({id:item.id,original_name:item.file.name,saved_name:item.id+"_"+safeName(item.file.name),mime_type:item.file.type,size_bytes:item.file.size,last_modified:item.file.lastModified,role:item.role,purpose:item.purpose,notes:item.notes})),
+    delivery:{languages:fd.getAll("languages"),other_language:fd.get("other_language")||"",items:deliverables.filter(item=>[item.type,item.channel,item.specification].some(filled)).map(item=>({...item}))},
+    confirmation:{status:"pending",reviewer:"",notes:""}
+  };
+}
+document.getElementById("saveDraft").onclick=()=>{
+  try{localStorage.setItem(draftKey,JSON.stringify(collect()));setStatus("草稿已保存在当前浏览器。重新打开后需重新选择上传文件。")}
+  catch(err){setStatus("本地草稿保存失败，请导出 brief.json："+err.message)}
+};
+document.getElementById("clearAll").onclick=()=>{
+  if(!window.confirm("确定清空所有已填写内容、已选附件和本地草稿吗？此操作无法撤销。"))return;
+  form.reset();
+  assets.forEach(item=>URL.revokeObjectURL(item.previewUrl));assets=[];textMaterials=[];deliverables=[];pendingAssets=[];
+  nextAsset=1;nextText=1;nextDeliverable=1;
+  renderAssets();addTextMaterial();addDeliverable();updateProgress();
+  try{localStorage.removeItem(draftKey);setStatus("表单内容、已选附件和本地草稿已清空。")}
+  catch(err){setStatus("表单内容和已选附件已清空；本地草稿清除失败："+err.message)}
+};
+document.getElementById("saveProject").onclick=async event=>{
+  const button=event.currentTarget;
+  const data=collect();
+  button.disabled=true;
+  setStatus("正在保存到项目工作区……");
+  try{
+    for(const item of assets){
+      const savedName=item.id+"_"+safeName(item.file.name);
+      const response=await fetch("/api/assets/"+encodeURIComponent(savedName),{method:"POST",headers:{"Content-Type":item.file.type||"application/octet-stream"},body:item.file});
+      const result=await response.json().catch(()=>({}));
+      if(!response.ok)throw new Error(result.error||"图片保存失败："+savedName);
+    }
+    const response=await fetch("/api/brief",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});
+    const result=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(result.error||"brief.json 保存失败");
+    const pendingFiles=pendingAssets.length;
+    setStatus("已直接保存到："+result.project_root+(pendingFiles?"。另有 "+pendingFiles+" 个草稿附件尚未重新选择。":""));
+  }catch(err){
+    setStatus("保存失败："+err.message+"。请通过项目中的 serve-form.py 打开表单。");
+  }finally{button.disabled=false}
+};
+function applyData(data){
+  const activity=data.activity||{};
+  const old=data.content_master||{};
+  const communication=data.communication||{};
+  const visual=data.visual||{};
+  const eventDate=[activity.date||old.event_date,activity.time||old.opening_hours].filter(filled).join("；");
+  const fields={
+    activity_type:activity.type||data.intake?.activity_type,event_name:activity.name||old.event_name,theme:activity.theme||old.tagline,
+    audience:communication.audience,communication_goal:communication.goal,
+    participation_info:communication.participation_info||[
+      communication.participation_guidance||communication.action_copy||communication.participation_method||old.cta,
+      communication.participation_entry
+    ].filter(filled).join("\n"),
+    style_keywords:visual.style_keywords,palette:visual.palette,composition:visual.composition,
+    other_language:data.delivery?.other_language
+  };
+  Object.entries(fields).forEach(([name,value])=>{if(form.elements[name]&&value!=null)form.elements[name].value=value});
+  const languages=data.delivery?.languages||data.deliverable?.languages||[];
+  [...form.querySelectorAll('input[name="languages"]')].forEach(box=>box.checked=languages.includes(box.value));
+  textMaterials=[];deliverables=[];assets=[];
+  if(Array.isArray(data.text_materials))data.text_materials.forEach(addTextMaterial);
+  else {
+    if(data.visual?.cultural_context)addTextMaterial({category:"background",content:data.visual.cultural_context});
+    if(data.hierarchy?.verbatim_copy)addTextMaterial({category:"other",content:data.hierarchy.verbatim_copy,processing:"full-verbatim"});
+  }
+  [
+    {category:"event-time",content:eventDate},
+    {category:"event-location",content:activity.venue||old.venue},
+    {category:"organizer",content:activity.organizer||old.organizer},
+    {category:"credit",content:data.credit_copy}
+  ].forEach(item=>{
+    if(filled(item.content)&&!textMaterials.some(existing=>existing.category===item.category))addTextMaterial({...item,processing:"full-verbatim"});
+  });
+  const outputItems=data.delivery?.items||(
+    data.deliverable?.type?[{type:data.deliverable.type,channel:communication.channels||"",specification:data.deliverable.width&&data.deliverable.height?
+      data.deliverable.width+"×"+data.deliverable.height+" "+(data.deliverable.unit||"px"):""}]:[]
+  );
+  outputItems.forEach(addDeliverable);
+  pendingAssets=Array.isArray(data.assets)?[...data.assets]:[];
+  const legacyQrName=communication.qr_code?.original_name||communication.qr_code?.missing_file_name||"";
+  nextAsset=nextNumber(pendingAssets,"ASSET");
+  nextText=nextNumber(textMaterials,"TEXT");
+  nextDeliverable=nextNumber(deliverables,"OUTPUT");
+  if(!textMaterials.length)addTextMaterial();
+  if(!deliverables.length)addDeliverable();
+  renderAssets();
+  const notices=[];
+  if(pendingAssets.length)notices.push("已恢复文件备注；请重新选择上传文件。");
+  if(legacyQrName)notices.push("旧草稿中的二维码附件未导入；当前表单已取消二维码上传。");
+  if(data.supplementary_sources||(data.text_materials||[]).some(item=>item.description||item.source_url||item.original_name))notices.push("旧草稿中的补充资料与来源已移除；请核对原草稿。");
+  if(notices.length)setStatus(notices.join(" "));
+  updateProgress();
+}
+try{
+  const saved=localStorage.getItem(draftKey);
+  const raw=document.getElementById("prefill-data").textContent.trim();
+  const prefill=raw.startsWith("{")?JSON.parse(raw):{};
+  if(saved)applyData(JSON.parse(saved));
+  else if(Object.keys(prefill).length)applyData(prefill);
+  else {addTextMaterial();addDeliverable();renderAssets();updateProgress()}
+}catch(err){addTextMaterial();addDeliverable();renderAssets();updateProgress();setStatus("预填数据未载入："+err.message)}
+</script>
+</body>
+</html>

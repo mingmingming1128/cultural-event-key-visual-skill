@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cultural Event Key Visual"
+  short_description: "Turn an approved ImageGen visual into editable SVG"
+  default_prompt: "Use $cultural-event-key-visual-en to generate and revise a high-fidelity cultural-event visual, then assemble the approved PNG into editable SVG text and original-asset layers."
